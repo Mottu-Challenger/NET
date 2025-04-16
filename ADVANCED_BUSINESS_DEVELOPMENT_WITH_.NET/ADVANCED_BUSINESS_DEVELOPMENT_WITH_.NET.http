@@ -1,0 +1,6 @@
+@ADVANCED_BUSINESS_DEVELOPMENT_WITH_.NET_HostAddress = http://localhost:5200
+
+GET {{ADVANCED_BUSINESS_DEVELOPMENT_WITH_.NET_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
