@@ -14,7 +14,7 @@ namespace Api.Domain.Entity
 
         public string Nome { get; set; }
         public string Email { get; set; }
-        public int CPF { get; set; }
+        public string CPF { get; set; }
         public string RG { get; set; }
         public DateTime DtaNasc { get; set; }
         public int NumeroDeCadastro { get; set; }
@@ -30,7 +30,7 @@ namespace Api.Domain.Entity
         // Relacionamento direto com a moto associada
         public Moto Motos { get; set; }
 
-        public User(long idUser, string nome, string email, int cpf, string rg, DateTime dtaNasc, int numeroDeCadastro, bool ativo, string nacionalidade, string carteira, string enderco, string contato, string plano, Moto motos)
+        public User(long idUser, string nome, string email, string cpf, string rg, DateTime dtaNasc, int numeroDeCadastro, bool ativo, string nacionalidade, string carteira, string enderco, string contato, string plano, Moto motos)
         {
             ValidadorDeRg(rg);
             ValidadorDeCPF(cpf);
@@ -102,7 +102,7 @@ namespace Api.Domain.Entity
                 throw new DomainException("CPF inválido.");
         }
 
-        internal static User Create(long idUser, string nome, string email, int cpf, string rg, DateTime dtaNasc, int numeroDeCadastro, bool ativo, string nacionalidade, string carteira, string enderco, string contato, string plano, Moto motos)
+        internal static User Create(long idUser, string nome, string email, string cpf, string rg, DateTime dtaNasc, int numeroDeCadastro, bool ativo, string nacionalidade, string carteira, string enderco, string contato, string plano, Moto motos)
         {
             return new User(idUser, nome, email, cpf, rg, dtaNasc, numeroDeCadastro, ativo, nacionalidade, carteira, enderco, contato, plano, motos);
         }
