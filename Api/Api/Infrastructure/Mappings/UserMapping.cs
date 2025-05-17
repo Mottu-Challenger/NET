@@ -10,65 +10,65 @@ namespace Api.Infrastructure.Mappings
         {
 
             builder
-                .HasKey(u => u.IDUser);
+                .HasKey(u => u.idUser);
 
             builder
-                .Property(u => u.IDUser)
+                .Property(u => u.idUser)
                 .ValueGeneratedOnAdd();
 
             builder
-                .Property(u => u.Nome)
+                .Property(u => u.nome)
                 .HasMaxLength(100)
                 .IsRequired();
 
             builder
-                .Property(u => u.Email)
+                .Property(u => u.email)
                 .HasMaxLength(100)
                 .IsRequired();
 
             builder
-                .Property(u => u.CPF)
+                .Property(u => u.cpf)
                 .HasMaxLength(14)
                 .IsRequired();
 
             builder
-                .Property(u => u.RG)
+                .Property(u => u.rg)
                 .HasMaxLength(20);
 
             builder
-                .Property(u => u.DtaNasc)
+                .Property(u => u.dtaNasc)
                 .IsRequired();
 
             builder
-                .Property(u => u.NumeroDeCadastro)
+                .Property(u => u.numeroDeCadastro)
                 .IsRequired();
 
             builder
-                .Property(u => u.Ativo)
+                .Property(u => u.ativo)
                 .IsRequired();
 
             builder
-                .Property(u => u.Nacionalidade)
+                .Property(u => u.nacionalidade)
                 .HasMaxLength(50);
 
             builder
-                .Property(u => u.Carteira)
+                .Property(u => u.carteira)
                 .HasMaxLength(50);
 
             builder
-                .Property(u => u.Enderco)
+                .Property(u => u.enderco)
                 .HasMaxLength(100);
 
             builder
-                .Property(u => u.Contato)
+                .Property(u => u.contato)
                 .HasMaxLength(100);
 
             builder
-                .Property(u => u.Plano)
+                .Property(u => u.plano)
                 .HasMaxLength(100);
 
             builder
-                .HasOne(u => u.Motos)
+                .HasOne(u => u.motos)
                 .WithOne() // ou .WithMany() se for 1:N
                 .HasForeignKey<Moto>("UserId")
                 .OnDelete(DeleteBehavior.Restrict);

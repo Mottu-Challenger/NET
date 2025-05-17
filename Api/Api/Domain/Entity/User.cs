@@ -10,44 +10,42 @@ namespace Api.Domain.Entity
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public long IDUser { get; set; }
+        public long idUser { get; set; }
 
-        public string Nome { get; set; }
-        public string Email { get; set; }
-        public string CPF { get; set; }
-        public string RG { get; set; }
-        public DateTime DtaNasc { get; set; }
-        public int NumeroDeCadastro { get; set; }
-        public bool Ativo { get; set; }
+        public string nome { get; set; }
+        public string email { get; set; }
+        public string cpf { get; set; }
+        public string rg { get; set; }
+        public DateTime dtaNasc { get; set; }
+        public int numeroDeCadastro { get; set; }
+        public bool ativo { get; set; }
 
         // Representações simples como strings (pode ser substituído por FK depois)
-        public string Nacionalidade { get; set; }
-        public string Carteira { get; set; }
-        public string Enderco { get; set; }
-        public string Contato { get; set; }
-        public string Plano { get; set; }
+        public string nacionalidade { get; set; }
+        public string carteira { get; set; }
+        public string enderco { get; set; }
+        public string contato { get; set; }
+        public string plano { get; set; }
 
         // Relacionamento direto com a moto associada
-        public Moto Motos { get; set; }
+        public Moto motos { get; set; }
 
         public User(long idUser, string nome, string email, string cpf, string rg, DateTime dtaNasc, int numeroDeCadastro, bool ativo, string nacionalidade, string carteira, string enderco, string contato, string plano, Moto motos)
         {
-            ValidadorDeRg(rg);
-            ValidadorDeCPF(cpf);
-            IDUser = idUser;
-            Nome = nome;
-            Email = email;
-            CPF = cpf;
-            RG = rg;
-            DtaNasc = dtaNasc;
-            NumeroDeCadastro = numeroDeCadastro;
-            Ativo = ativo;
-            Nacionalidade = nacionalidade;
-            Carteira = carteira;
-            Enderco = enderco;
-            Contato = contato;
-            Plano = plano;
-            Motos = motos;
+            this.idUser = idUser;
+            this.nome = nome;
+            this.email = email;
+            this.cpf = cpf;
+            this.rg = rg;
+            this.dtaNasc = dtaNasc;
+            this.numeroDeCadastro = numeroDeCadastro;
+            this.ativo = ativo;
+            this.nacionalidade = nacionalidade;
+            this.carteira = carteira;
+            this.enderco = enderco;
+            this.contato = contato;
+            this.plano = plano;
+            this.motos = motos;
         }
 
         public User()

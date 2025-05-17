@@ -20,25 +20,25 @@ namespace Api.Controller
         public async Task<IEnumerable<User>> GetUsers()
         {
             var users = await _context.Users
-                .Include(u => u.Motos)
+                .Include(u => u.motos)
                 .ToListAsync();
 
             return users.Select(u => new User
             {
-                IDUser = u.IDUser,
-                Nome = u.Nome,
-                Email = u.Email,
-                CPF = u.CPF,
-                RG = u.RG,
-                DtaNasc = u.DtaNasc,
-                NumeroDeCadastro = u.NumeroDeCadastro,
-                Ativo = u.Ativo,
-                Nacionalidade = u.Nacionalidade,
-                Carteira = u.Carteira,
-                Enderco = u.Enderco,
-                Contato = u.Contato,
-                Plano = u.Plano,
-                Motos = u.Motos
+                idUser = u.idUser,
+                nome = u.nome,
+                email = u.email,
+                cpf = u.cpf,
+                rg = u.rg,
+                dtaNasc = u.dtaNasc,
+                numeroDeCadastro = u.numeroDeCadastro,
+                ativo = u.ativo,
+                nacionalidade = u.nacionalidade,
+                carteira = u.carteira,
+                enderco = u.enderco,
+                contato = u.contato,
+                plano = u.plano,
+                motos = u.motos
             });
         }
 
@@ -46,8 +46,8 @@ namespace Api.Controller
         public async Task<ActionResult<User>> GetById(long id)
         {
             var user = await _context.Users
-                .Include(u => u.Motos)
-                .FirstOrDefaultAsync(u => u.IDUser == id);
+                .Include(u => u.motos)
+                .FirstOrDefaultAsync(u => u.idUser == id);
 
             if (user == null)
                 return NotFound();
@@ -60,7 +60,7 @@ namespace Api.Controller
         {
             _context.Users.Add(user);
             await _context.SaveChangesAsync();
-            return CreatedAtAction(nameof(GetById), new { id = user.IDUser }, user);
+            return CreatedAtAction(nameof(GetById), new { id = user.idUser }, user);
         }
 
         [HttpPut("{id}")]
@@ -70,7 +70,7 @@ namespace Api.Controller
             if (existingUser == null)
                 return NotFound();
 
-            user.IDUser = id;
+            user.idUser = id;
             _context.Entry(existingUser).CurrentValues.SetValues(user);
             await _context.SaveChangesAsync();
             return Ok(user);
