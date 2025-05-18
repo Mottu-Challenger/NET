@@ -8,7 +8,7 @@ namespace Api.Infrastructure.Mappings
     {
         public void Configure(EntityTypeBuilder<Moto> builder)
         {
-
+            
             builder
                 .HasKey(c => c.IDMoto);
 
