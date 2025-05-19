@@ -30,17 +30,11 @@ namespace Api
                 //var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
                 //swagger.IncludeXmlComments(xmlPath);
             });
-            
-            builder.Services.AddDbContext<UserContext>(options =>
-            {
-                options.UseOracle(builder.Configuration.GetConnectionString("OracleConnection"))
-                       .UseLazyLoadingProxies();
-            });
 
-            builder.Services.AddDbContext<MotosContext>(options =>
+            builder.Services.AddDbContext < MotosContext>(options =>
             {
-                options.UseOracle(builder.Configuration.GetConnectionString("OracleConnection"))
-                       .UseLazyLoadingProxies();
+                options.UseOracle(builder.Configuration.GetConnectionString("OracleMottu"))
+                    .UseLazyLoadingProxies();
             });
             
             builder.Services.AddScoped<IRepository<User>, Repository<User>>();

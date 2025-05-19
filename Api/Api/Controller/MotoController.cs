@@ -1,3 +1,4 @@
+using System.Net;
 using Api.Application.DTO.Request;
 using Api.Application.DTO.Response;
 using Api.Application.Validators;
@@ -24,6 +25,10 @@ namespace Api.Controller
         }
 
         [HttpGet]
+        [ProducesResponseType((int)HttpStatusCode.OK)]
+        [ProducesResponseType((int)HttpStatusCode.ServiceUnavailable)]
+        [ProducesResponseType((int)HttpStatusCode.InternalServerError)]
+        [ProducesResponseType((int)HttpStatusCode.BadRequest)]
         public async Task<ActionResult<IEnumerable<CreatedMotoResponse>>> GetMotos()
         {
             var motos = await _context.Motos.Include(m => m.user).ToListAsync();
@@ -56,6 +61,11 @@ namespace Api.Controller
         }
 
         [HttpGet("{id}")]
+        [ProducesResponseType((int)HttpStatusCode.OK)]
+        [ProducesResponseType((int)HttpStatusCode.NotFound)]
+        [ProducesResponseType((int)HttpStatusCode.ServiceUnavailable)]
+        [ProducesResponseType((int)HttpStatusCode.InternalServerError)]
+        [ProducesResponseType((int)HttpStatusCode.BadRequest)]
         public async Task<ActionResult<CreatedMotoResponse>> GetById(long id)
         {
             var m = await _context.Motos
@@ -93,6 +103,10 @@ namespace Api.Controller
         }
 
         [HttpPost]
+        [ProducesResponseType((int)HttpStatusCode.Created)]
+        [ProducesResponseType((int)HttpStatusCode.ServiceUnavailable)]
+        [ProducesResponseType((int)HttpStatusCode.InternalServerError)]
+        [ProducesResponseType((int)HttpStatusCode.BadRequest)]
         public async Task<ActionResult<CreatedMotoResponse>> Create([FromBody] CreateMotoRequest request)
         {
             _validator.ValidateAndThrow(request);

@@ -1,3 +1,4 @@
+using System.Net;
 using Api.Application.DTO.Request;
 using Api.Application.DTO.Response;
 using Api.Application.Validators;
@@ -23,6 +24,10 @@ namespace Api.Controller
         }
 
         [HttpGet]
+        [ProducesResponseType((int)HttpStatusCode.OK)]
+        [ProducesResponseType((int)HttpStatusCode.ServiceUnavailable)]
+        [ProducesResponseType((int)HttpStatusCode.InternalServerError)]
+        [ProducesResponseType((int)HttpStatusCode.BadRequest)]
         public async Task<ActionResult<IEnumerable<CreatedUserResponse>>> GetUsers()
         {
             var users = await _context.Users
@@ -49,8 +54,13 @@ namespace Api.Controller
 
             return Ok(response);
         }
-
-        [HttpGet("{id}")]
+        
+        [HttpPut("{id}")]
+        [ProducesResponseType((int)HttpStatusCode.NotFound)]
+        [ProducesResponseType((int)HttpStatusCode.NoContent)]
+        [ProducesResponseType((int)HttpStatusCode.ServiceUnavailable)]
+        [ProducesResponseType((int)HttpStatusCode.InternalServerError)]
+        [ProducesResponseType((int)HttpStatusCode.BadRequest)]
         public async Task<ActionResult<CreatedUserResponse>> GetById(long id)
         {
             var u = await _context.Users
@@ -82,6 +92,10 @@ namespace Api.Controller
         }
 
         [HttpPost]
+        [ProducesResponseType((int)HttpStatusCode.Created)]
+        [ProducesResponseType((int)HttpStatusCode.ServiceUnavailable)]
+        [ProducesResponseType((int)HttpStatusCode.InternalServerError)]
+        [ProducesResponseType((int)HttpStatusCode.BadRequest)]
         public async Task<ActionResult<CreatedUserResponse>> Create([FromBody] CreateUserRequest request)
         {
             _validator.ValidateAndThrow(request);
