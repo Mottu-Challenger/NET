@@ -8,19 +8,19 @@ namespace Api.Domain.Entity
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public long IdMultas { get; set; }
+        public long idMultas { get; set; }
 
-        public string PlacaMoto { get; set; }
+        public string placaMoto { get; set; }
 
-        public string Descricao { get; set; }
+        public string descricao { get; set; }
 
-        public double Valor { get; set; }
+        public double valor { get; set; }
 
-        public DateTime DataMulta { get; set; }
+        public DateTime dataMulta { get; set; }
 
-        public bool Paga { get; set; }
+        public bool paga { get; set; }
 
-        public string Moto { get; set; }
+        public Moto moto { get; set; }
 
     }
 }

@@ -7,43 +7,43 @@ namespace Api.Application.Validators
     {
         public CreateUserRequestValidator()
         {
-            RuleFor(x => x.Nome)
+            RuleFor(x => x.nome)
                 .NotEmpty()
                 .MaximumLength(100);
 
-            RuleFor(x => x.Email)
+            RuleFor(x => x.email)
                 .NotEmpty()
                 .EmailAddress()
                 .MaximumLength(100);
 
-            RuleFor(x => x.CPF)
+            RuleFor(x => x.cpf)
                 .NotEmpty()
                 .Length(11, 14)
                 .WithMessage("Insira um CPF válido.");
 
-            RuleFor(x => x.RG)
+            RuleFor(x => x.rg)
                 .MaximumLength(20);
 
-            RuleFor(x => x.DtaNasc)
+            RuleFor(x => x.dtaNasc)
                 .LessThanOrEqualTo(DateOnly.FromDateTime(DateTime.Today))
                 .WithMessage("Insira uma data de nascimento válida.");
 
-            RuleFor(x => x.NumeroDeCadastro)
+            RuleFor(x => x.numeroDeCadastro)
                 .GreaterThan(0);
 
-            RuleFor(x => x.Nacionalidade)
+            RuleFor(x => x.nacionalidade)
                 .MaximumLength(50);
 
-            RuleFor(x => x.Carteira)
+            RuleFor(x => x.carteira)
                 .MaximumLength(50);
 
-            RuleFor(x => x.Enderco)
+            RuleFor(x => x.enderco)
                 .MaximumLength(100);
 
-            RuleFor(x => x.Contato)
+            RuleFor(x => x.contato)
                 .MaximumLength(100);
 
-            RuleFor(x => x.Plano)
+            RuleFor(x => x.plano)
                 .MaximumLength(100);
         }
     }

@@ -9,13 +9,13 @@ namespace Api.Domain.Entity
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public long IDStatus { get; set; }
+        public long idStatus { get; set; }
 
-        public TypeStatus StatusTipo { get; set; }
+        public TypeStatus statusTipo { get; set; }
 
-        public string Motos { get; set; }
+        public Moto motos { get; set; }
 
-        public string Reparo { get; set; }
+        public Reparo reparo { get; set; }
 
     }
 }

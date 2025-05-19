@@ -10,88 +10,87 @@ namespace Api.Infrastructure.Mappings
         {
             
             builder
-                .HasKey(c => c.IDMoto);
+                .HasKey(c => c.idMoto);
 
             builder
-                .Property(c => c.IDMoto)
+                .Property(c => c.idMoto)
                 .ValueGeneratedOnAdd();
 
             builder
-                .Property(c => c.AnoDeFabricacao)
+                .Property(c => c.anoDeFabricacao)
                 .IsRequired();
 
             builder
-                .Property(c => c.AnoDelançamento)
+                .Property(c => c.anoDeLancamento)
                 .IsRequired();
 
             builder
-                .Property(c => c.Quilometragem)
+                .Property(c => c.quilometragem)
                 .IsRequired();
 
             builder
-                .Property(c => c.Placa)
+                .Property(c => c.placa)
                 .HasMaxLength(10)
                 .IsRequired();
 
             builder
-                .Property(c => c.TagDaMoto)
+                .Property(c => c.tagDaMoto)
                 .HasMaxLength(50);
 
             builder
-                .Property(c => c.Chassi)
+                .Property(c => c.chassi)
                 .HasMaxLength(20)
                 .IsRequired();
 
             builder
-                .Property(c => c.Observacao)
+                .Property(c => c.observacao)
                 .HasMaxLength(255);
 
             builder
-                .Property(c => c.FotoDaMoto);
+                .Property(c => c.fotoDaMoto);
 
             builder
-                .Property(c => c.IPVA)
+                .Property(c => c.ipva)
                 .IsRequired();
 
             builder
-                .Property(c => c.Licenciamento)
+                .Property(c => c.licenciamento)
                 .IsRequired();
 
             builder
-                .Property(c => c.DPVAT)
+                .Property(c => c.dpvat)
                 .IsRequired();
 
             builder
-                .Property(c => c.Combustivel)
+                .Property(c => c.combustivel)
                 .IsRequired();
 
             builder
-                .Property(c => c.TypeMoto)
+                .Property(c => c.typeMoto)
                 .IsRequired();
 
             builder
-                .Property(c => c.PatioAtual)
+                .Property(c => c.patioAtual)
                 .HasMaxLength(100);
 
             builder
-                .Property(c => c.PlanoAssociado)
+                .Property(c => c.planoAssociado)
                 .HasMaxLength(100);
 
             builder
-                .Property(c => c.Multas)
+                .Property(c => c.multas)
                 .HasMaxLength(255);
 
             builder
-                .Property(c => c.HistoricoDeReparos)
+                .Property(c => c.historicoDeReparos)
                 .HasMaxLength(255);
 
             builder
-                .Property(c => c.HistoricoDeChecks)
+                .Property(c => c.historicoDeChecks)
                 .HasMaxLength(255);
 
-            // Relacionamento com User (1:N)
             builder
-                .HasOne(c => c.User)
+                .HasOne(c => c.user)
                 .WithMany()
                 .HasForeignKey("UserId")
                 .OnDelete(DeleteBehavior.Restrict);

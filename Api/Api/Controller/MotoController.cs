@@ -26,30 +26,30 @@ namespace Api.Controller
         [HttpGet]
         public async Task<ActionResult<IEnumerable<CreatedMotoResponse>>> GetMotos()
         {
-            var motos = await _context.Motos.Include(m => m.User).ToListAsync();
+            var motos = await _context.Motos.Include(m => m.user).ToListAsync();
 
             var response = motos.Select(m => new CreatedMotoResponse
             {
-                IDMoto = m.IDMoto,
-                AnoDelançamento = DateOnly.FromDateTime(m.AnoDelançamento),
-                Quilometragem = m.Quilometragem,
-                AnoDeFabricacao = m.AnoDeFabricacao,
-                Placa = m.Placa,
-                TagDaMoto = m.TagDaMoto,
-                Chassi = m.Chassi,
-                Observacao = m.Observacao,
-                FotoDaMoto = m.FotoDaMoto,
-                IPVA = m.IPVA,
-                Licenciamento = m.Licenciamento,
-                DPVAT = m.DPVAT,
-                Combustivel = m.Combustivel.ToString(),
-                TypeMotos = m.TypeMoto.ToString(),
-                PatioAtual = m.PatioAtual,
-                PlanoAssociado = m.PlanoAssociado,
-                Multas = m.Multas,
-                HistoricoDeReparos = m.HistoricoDeReparos,
-                HistoricoDeChecks = m.HistoricoDeChecks,
-                UserId = m.User.idUser
+                idMoto = m.idMoto,
+                anoDeLancamento = DateOnly.FromDateTime(m.anoDeLancamento),
+                quilometragem = m.quilometragem,
+                anoDeFabricacao = m.anoDeFabricacao,
+                placa = m.placa,
+                tagDaMoto = m.tagDaMoto,
+                chassi = m.chassi,
+                observacao = m.observacao,
+                fotoDaMoto = m.fotoDaMoto,
+                ipva = m.ipva,
+                licenciamento = m.licenciamento,
+                dpvat = m.dpvat,
+                combustivel = m.combustivel.ToString(),
+                typeMotos = m.typeMoto.ToString(),
+                patioAtual = m.patioAtual,
+                planoAssociado = m.planoAssociado,
+                multas = m.multas,
+                historicoDeReparos = m.historicoDeReparos,
+                historicoDeChecks = m.historicoDeChecks,
+                userId = m.user.idUser
             });
 
             return Ok(response);
@@ -59,34 +59,34 @@ namespace Api.Controller
         public async Task<ActionResult<CreatedMotoResponse>> GetById(long id)
         {
             var m = await _context.Motos
-                .Include(m => m.User)
-                .FirstOrDefaultAsync(m => m.IDMoto == id);
+                .Include(m => m.user)
+                .FirstOrDefaultAsync(m => m.idMoto == id);
 
             if (m == null)
                 return NotFound();
 
             var response = new CreatedMotoResponse
             {
-                IDMoto = m.IDMoto,
-                AnoDelançamento = DateOnly.FromDateTime(m.AnoDelançamento),
-                Quilometragem = m.Quilometragem,
-                AnoDeFabricacao = m.AnoDeFabricacao,
-                Placa = m.Placa,
-                TagDaMoto = m.TagDaMoto,
-                Chassi = m.Chassi,
-                Observacao = m.Observacao,
-                FotoDaMoto = m.FotoDaMoto,
-                IPVA = m.IPVA,
-                Licenciamento = m.Licenciamento,
-                DPVAT = m.DPVAT,
-                Combustivel = m.Combustivel.ToString(),
-                TypeMotos = m.TypeMoto.ToString(),
-                PatioAtual = m.PatioAtual,
-                PlanoAssociado = m.PlanoAssociado,
-                Multas = m.Multas,
-                HistoricoDeReparos = m.HistoricoDeReparos,
-                HistoricoDeChecks = m.HistoricoDeChecks,
-                UserId = m.User.idUser
+                idMoto = m.idMoto,
+                anoDeLancamento = DateOnly.FromDateTime(m.anoDeLancamento),
+                quilometragem = m.quilometragem,
+                anoDeFabricacao = m.anoDeFabricacao,
+                placa = m.placa,
+                tagDaMoto = m.tagDaMoto,
+                chassi = m.chassi,
+                observacao = m.observacao,
+                fotoDaMoto = m.fotoDaMoto,
+                ipva = m.ipva,
+                licenciamento = m.licenciamento,
+                dpvat = m.dpvat,
+                combustivel = m.combustivel.ToString(),
+                typeMotos = m.typeMoto.ToString(),
+                patioAtual = m.patioAtual,
+                planoAssociado = m.planoAssociado,
+                multas = m.multas,
+                historicoDeReparos = m.historicoDeReparos,
+                historicoDeChecks = m.historicoDeChecks,
+                userId = m.user.idUser
             };
 
             return Ok(response);
@@ -97,31 +97,31 @@ namespace Api.Controller
         {
             _validator.ValidateAndThrow(request);
 
-            var user = await _context.Users.FindAsync(request.UserId);
+            var user = await _context.Users.FindAsync(request.userId);
             if (user == null)
                 return BadRequest("Usuário não encontrado.");
 
             var moto = new Moto
             {
-                AnoDelançamento = request.AnoDelançamento.ToDateTime(TimeOnly.MinValue),
-                Quilometragem = request.Quilometragem,
-                AnoDeFabricacao = request.AnoDeFabricacao,
-                Placa = request.Placa,
-                TagDaMoto = request.TagDaMoto,
-                Chassi = request.Chassi,
-                Observacao = request.Observacao,
-                FotoDaMoto = request.FotoDaMoto,
-                IPVA = request.IPVA,
-                Licenciamento = request.Licenciamento,
-                DPVAT = request.DPVAT,
-                Combustivel = (TypeCombustivel)request.Combustivel,
-                TypeMoto = (TypeMoto)request.TypeMotos,
-                PatioAtual = request.PatioAtual,
-                PlanoAssociado = request.PlanoAssociado,
-                Multas = request.Multas,
-                HistoricoDeReparos = request.HistoricoDeReparos,
-                HistoricoDeChecks = request.HistoricoDeChecks,
-                User = user
+                anoDeLancamento = request.anoDeLancamento.ToDateTime(TimeOnly.MinValue),
+                quilometragem = request.quilometragem,
+                anoDeFabricacao = request.anoDeFabricacao,
+                placa = request.placa,
+                tagDaMoto = request.tagDaMoto,
+                chassi = request.chassi,
+                observacao = request.observacao,
+                fotoDaMoto = request.fotoDaMoto,
+                ipva = request.ipva,
+                licenciamento = request.licenciamento,
+                dpvat = request.dpvat,
+                combustivel = (TypeCombustivel)request.combustivel,
+                typeMoto = (TypeMoto)request.typeMotos,
+                patioAtual = request.patioAtual,
+                planoAssociado = request.planoAssociado,
+                multas = request.multas,
+                historicoDeReparos = request.historicoDeReparos,
+                historicoDeChecks = request.historicoDeChecks,
+                user = user
             };
 
             _context.Motos.Add(moto);
@@ -129,29 +129,29 @@ namespace Api.Controller
 
             var response = new CreatedMotoResponse
             {
-                IDMoto = moto.IDMoto,
-                AnoDelançamento = DateOnly.FromDateTime(moto.AnoDelançamento),
-                Quilometragem = moto.Quilometragem,
-                AnoDeFabricacao = moto.AnoDeFabricacao,
-                Placa = moto.Placa,
-                TagDaMoto = moto.TagDaMoto,
-                Chassi = moto.Chassi,
-                Observacao = moto.Observacao,
-                FotoDaMoto = moto.FotoDaMoto,
-                IPVA = moto.IPVA,
-                Licenciamento = moto.Licenciamento,
-                DPVAT = moto.DPVAT,
-                Combustivel = moto.Combustivel.ToString(),
-                TypeMotos = moto.TypeMoto.ToString(),
-                PatioAtual = moto.PatioAtual,
-                PlanoAssociado = moto.PlanoAssociado,
-                Multas = moto.Multas,
-                HistoricoDeReparos = moto.HistoricoDeReparos,
-                HistoricoDeChecks = moto.HistoricoDeChecks,
-                UserId = user.idUser
+                idMoto = moto.idMoto,
+                anoDeLancamento = DateOnly.FromDateTime(moto.anoDeLancamento),
+                quilometragem = moto.quilometragem,
+                anoDeFabricacao = moto.anoDeFabricacao,
+                placa = moto.placa,
+                tagDaMoto = moto.tagDaMoto,
+                chassi = moto.chassi,
+                observacao = moto.observacao,
+                fotoDaMoto = moto.fotoDaMoto,
+                ipva = moto.ipva,
+                licenciamento = moto.licenciamento,
+                dpvat = moto.dpvat,
+                combustivel = moto.combustivel.ToString(),
+                typeMotos = moto.typeMoto.ToString(),
+                patioAtual = moto.patioAtual,
+                planoAssociado = moto.planoAssociado,
+                multas = moto.multas,
+                historicoDeReparos = moto.historicoDeReparos,
+                historicoDeChecks = moto.historicoDeChecks,
+                userId = user.idUser
             };
 
-            return CreatedAtAction(nameof(GetById), new { id = moto.IDMoto }, response);
+            return CreatedAtAction(nameof(GetById), new { id = moto.idMoto }, response);
         }
     }
 }

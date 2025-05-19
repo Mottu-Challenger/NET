@@ -9,46 +9,45 @@ namespace Api.Domain.Entity
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public long IDMoto { get; set; }
+        public long idMoto { get; set; }
 
-        public DateTime AnoDelançamento { get; set; }
+        public DateTime anoDeLancamento { get; set; }
 
-        public int Quilometragem { get; set; }
+        public int quilometragem { get; set; }
 
-        public int AnoDeFabricacao { get; set; }
+        public int anoDeFabricacao { get; set; }
 
-        public string Placa { get; set; }
+        public string placa { get; set; }
 
-        public string TagDaMoto { get; set; }
+        public string tagDaMoto { get; set; }
 
-        public string Chassi { get; set; }
+        public string chassi { get; set; }
 
-        public string Observacao { get; set; }
+        public string observacao { get; set; }
 
-        public string FotoDaMoto { get; set; }
+        public string fotoDaMoto { get; set; }
 
-        public bool IPVA { get; set; }
+        public bool ipva { get; set; }
 
-        public bool Licenciamento { get; set; }
+        public bool licenciamento { get; set; }
 
-        public bool DPVAT { get; set; }
+        public bool dpvat { get; set; }
 
-        public TypeCombustivel Combustivel { get; set; }
+        public TypeCombustivel combustivel { get; set; }
 
-        public TypeMoto TypeMoto { get; set; }
+        public TypeMoto typeMoto { get; set; }
 
-        // Relação N:1 com User
-        public User User { get; set; }
+        public User user { get; set; }
 
-        public string PatioAtual { get; set; }
+        public string patioAtual { get; set; }
 
-        public string PlanoAssociado { get; set; }
+        public string planoAssociado { get; set; }
 
-        public string Multas { get; set; }
+        public string multas { get; set; }
 
-        public string HistoricoDeReparos { get; set; }
+        public string historicoDeReparos { get; set; }
 
-        public string HistoricoDeChecks { get; set; }
+        public string historicoDeChecks { get; set; }
 
     }
 }

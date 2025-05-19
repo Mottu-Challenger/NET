@@ -31,20 +31,20 @@ namespace Api.Controller
 
             var response = users.Select(u => new CreatedUserResponse
             {
-                IDUser = u.idUser,
-                Nome = u.nome,
-                Email = u.email,
-                CPF = u.cpf,
-                RG = u.rg,
-                DtaNasc = DateOnly.FromDateTime(u.dtaNasc),
-                NumeroDeCadastro = u.numeroDeCadastro,
-                Ativo = u.ativo,
-                Nacionalidade = u.nacionalidade,
-                Carteira = u.carteira,
-                Enderco = u.enderco,
-                Contato = u.contato,
-                Plano = u.plano,
-                MotoId = u.motos?.IDMoto ?? 0
+                idUser = u.idUser,
+                nome = u.nome,
+                email = u.email,
+                cpf = u.cpf,
+                rg = u.rg,
+                dtaNasc = DateOnly.FromDateTime(u.dtaNasc),
+                numeroDeCadastro = u.numeroDeCadastro,
+                ativo = u.ativo,
+                nacionalidade = u.nacionalidade,
+                carteira = u.carteira,
+                enderco = u.enderco,
+                contato = u.contato,
+                plano = u.plano,
+                motoId = u.motos?.idMoto ?? 0
             });
 
             return Ok(response);
@@ -62,20 +62,20 @@ namespace Api.Controller
 
             var response = new CreatedUserResponse
             {
-                IDUser = u.idUser,
-                Nome = u.nome,
-                Email = u.email,
-                CPF = u.cpf,
-                RG = u.rg,
-                DtaNasc = DateOnly.FromDateTime(u.dtaNasc),
-                NumeroDeCadastro = u.numeroDeCadastro,
-                Ativo = u.ativo,
-                Nacionalidade = u.nacionalidade,
-                Carteira = u.carteira,
-                Enderco = u.enderco,
-                Contato = u.contato,
-                Plano = u.plano,
-                MotoId = u.motos?.IDMoto ?? 0
+                idUser = u.idUser,
+                nome = u.nome,
+                email = u.email,
+                cpf = u.cpf,
+                rg = u.rg,
+                dtaNasc = DateOnly.FromDateTime(u.dtaNasc),
+                numeroDeCadastro = u.numeroDeCadastro,
+                ativo = u.ativo,
+                nacionalidade = u.nacionalidade,
+                carteira = u.carteira,
+                enderco = u.enderco,
+                contato = u.contato,
+                plano = u.plano,
+                motoId = u.motos?.idMoto ?? 0
             };
 
             return Ok(response);
@@ -86,24 +86,24 @@ namespace Api.Controller
         {
             _validator.ValidateAndThrow(request);
 
-            var moto = await _context.Set<Moto>().FindAsync(request.MotoId);
+            var moto = await _context.Set<Moto>().FindAsync(request.motoId);
             if (moto == null)
                 return BadRequest("Moto não encontrada.");
 
             var user = new User
             {
-                nome = request.Nome,
-                email = request.Email,
-                cpf = request.CPF,
-                rg = request.RG,
-                dtaNasc = request.DtaNasc.ToDateTime(TimeOnly.MinValue),
-                numeroDeCadastro = request.NumeroDeCadastro,
-                ativo = request.Ativo,
-                nacionalidade = request.Nacionalidade,
-                carteira = request.Carteira,
-                enderco = request.Enderco,
-                contato = request.Contato,
-                plano = request.Plano,
+                nome = request.nome,
+                email = request.email,
+                cpf = request.cpf,
+                rg = request.rg,
+                dtaNasc = request.dtaNasc.ToDateTime(TimeOnly.MinValue),
+                numeroDeCadastro = request.numeroDeCadastro,
+                ativo = request.ativo,
+                nacionalidade = request.nacionalidade,
+                carteira = request.carteira,
+                enderco = request.enderco,
+                contato = request.contato,
+                plano = request.plano,
                 motos = moto
             };
 
@@ -112,20 +112,20 @@ namespace Api.Controller
 
             var response = new CreatedUserResponse
             {
-                IDUser = user.idUser,
-                Nome = user.nome,
-                Email = user.email,
-                CPF = user.cpf,
-                RG = user.rg,
-                DtaNasc = DateOnly.FromDateTime(user.dtaNasc),
-                NumeroDeCadastro = user.numeroDeCadastro,
-                Ativo = user.ativo,
-                Nacionalidade = user.nacionalidade,
-                Carteira = user.carteira,
-                Enderco = user.enderco,
-                Contato = user.contato,
-                Plano = user.plano,
-                MotoId = moto.IDMoto
+                idUser = user.idUser,
+                nome = user.nome,
+                email = user.email,
+                cpf = user.cpf,
+                rg = user.rg,
+                dtaNasc = DateOnly.FromDateTime(user.dtaNasc),
+                numeroDeCadastro = user.numeroDeCadastro,
+                ativo = user.ativo,
+                nacionalidade = user.nacionalidade,
+                carteira = user.carteira,
+                enderco = user.enderco,
+                contato = user.contato,
+                plano = user.plano,
+                motoId = moto.idMoto
             };
 
             return CreatedAtAction(nameof(GetById), new { id = user.idUser }, response);

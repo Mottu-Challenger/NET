@@ -8,15 +8,13 @@ namespace Api.Domain.Entity
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public long IDCheck { get; set; }
-
-        //Date
-        public DateTime CheckIn { get; set; }
-        public DateTime CheckOut { get; set; }
+        public long idCheck { get; set; }
         
-        // Relacionamentos
-        public string Moto { get; set; }
-        public string Funcionario { get; set; }
+        public DateTime checkIn { get; set; }
+        public DateTime checkOut { get; set; }
+        
+        public Moto moto { get; set; }
+        public Funcionario funcionario { get; set; }
         
     }
 }

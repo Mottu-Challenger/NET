@@ -3,12 +3,10 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Api.Infrastructure.Persistence.Repositories
 {
-
     public class Repository<T> : IRepository<T> where T : class
     {
         protected readonly UserContext _context;
         protected readonly DbSet<T> _dbSet;
-        private IRepository<T> _repositoryImplementation;
 
         public Repository(UserContext context)
         {
@@ -19,11 +17,6 @@ namespace Api.Infrastructure.Persistence.Repositories
         public async Task<T?> GetByIdAsync(long id)
         {
             return await _dbSet.FindAsync(id);
-        }
-
-        public Task<T> GetByIdAsync(Guid id)
-        {
-            return _repositoryImplementation.GetByIdAsync(id);
         }
 
         public async Task<IEnumerable<T>> GetAllAsync() => await _dbSet.ToListAsync();
@@ -38,5 +31,4 @@ namespace Api.Infrastructure.Persistence.Repositories
 
         public void Delete(T entity) => _dbSet.Remove(entity);
     }
-    
 }

@@ -2,30 +2,30 @@ namespace Api.Application.DTO.Request
 {
     public class CreateUserRequest
     {
-        public string Nome { get; set; }
+        public string nome { get; set; }
 
-        public string Email { get; set; }
+        public string email { get; set; }
 
-        public string CPF { get; set; }
+        public string cpf { get; set; }
 
-        public string RG { get; set; }
+        public string rg { get; set; }
 
-        public DateOnly DtaNasc { get; set; }
+        public DateOnly dtaNasc { get; set; }
 
-        public int NumeroDeCadastro { get; set; }
+        public int numeroDeCadastro { get; set; }
 
-        public bool Ativo { get; set; }
+        public bool ativo { get; set; }
 
-        public string Nacionalidade { get; set; }
+        public string nacionalidade { get; set; }
 
-        public string Carteira { get; set; }
+        public string carteira { get; set; }
 
-        public string Enderco { get; set; }
+        public string enderco { get; set; }
 
-        public string Contato { get; set; }
+        public string contato { get; set; }
 
-        public string Plano { get; set; }
+        public string plano { get; set; }
 
-        public long MotoId { get; set; }
+        public long motoId { get; set; }
     }
 }

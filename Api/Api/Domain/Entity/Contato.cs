@@ -8,13 +8,13 @@ namespace Api.Domain.Entity
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public long IdContato { get; set; }
+        public long idContato { get; set; }
 
-        public string Ddi { get; set; }
+        public string ddi { get; set; }
 
-        public string Ddd { get; set; }
+        public string ddd { get; set; }
 
-        public string Numero { get; set; }
+        public string numero { get; set; }
 
     }
 }

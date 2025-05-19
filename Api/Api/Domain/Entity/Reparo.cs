@@ -9,32 +9,27 @@ namespace Api.Domain.Entity
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public long IDReparo { get; set; }
+        public long idReparo { get; set; }
 
-        public string DescricaoProblema { get; set; }
+        public string descricaoProblema { get; set; }
 
-        public int PrecoReparo { get; set; }
+        public int precoReparo { get; set; }
 
-        public DateTime DataSolicitacao { get; set; }
+        public DateTime dataSolicitacao { get; set; }
 
-        public DateTime DataConclusao { get; set; }
+        public DateTime dataConclusao { get; set; }
 
-        public double CustoEstimado { get; set; }
+        public double custoEstimado { get; set; }
 
-        public double CustoFinal { get; set; }
+        public double custoFinal { get; set; }
 
-        public string Responsavel { get; set; }
-
-
-        public string Motos { get; set; }
+        public string responsavel { get; set; }
 
 
-        public string Status { get; set; }
-
-        public string Check { get; set; }
-
-        // Enum múltiplo - poderá exigir tratamento especial no EF
-        public List<TypePeca> ListPecasParaReparo { get; set; }
+        public Moto motos { get; set; }
+        public TypeStatus status { get; set; }
+        public Check check { get; set; }
+        public List<TypePeca> listPecasParaReparo { get; set; }
 
     }
 }

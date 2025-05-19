@@ -9,30 +9,30 @@ namespace Api.Domain.Entity
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public long IDCarteira { get; set; }
+        public long idCarteira { get; set; }
 
-        public int NumeroDaCNH { get; set; }
+        public int numeroDaCNH { get; set; }
 
-        public DateTime DataDaHabilitacaoInicial { get; set; }
+        public DateTime dataDaHabilitacaoInicial { get; set; }
 
-        public DateTime DataDeEmissao { get; set; }
+        public DateTime dataDeEmissao { get; set; }
 
-        public string Filiacao { get; set; }
+        public string filiacao { get; set; }
 
-        public string Assinatura { get; set; }
+        public string assinatura { get; set; }
 
-        public string Observacao { get; set; }
+        public string observacao { get; set; }
 
-        public string Local { get; set; }
+        public Enderco local { get; set; }
 
-        public string AssinaturaDoEmissor { get; set; }
+        public string assinaturaDoEmissor { get; set; }
 
-        public string FotoDaCNH { get; set; }
+        public string fotoDaCNH { get; set; }
 
-        public TypeEstado Estado { get; set; }
+        public TypeEstado estado { get; set; }
 
-        public TypeCategoriaCarteira TypeCategoriaCarteira { get; set; }
+        public TypeCategoriaCarteira typeCategoriaCarteira { get; set; }
         
-        public string User {get; set;}
+        public User user {get; set;}
     }
 }

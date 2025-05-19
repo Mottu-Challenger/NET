@@ -21,20 +21,20 @@ namespace Api.Application.UseCases
 
             return users.Select(u => new CreatedUserResponse
             {
-                IDUser = u.idUser,
-                Nome = u.nome,
-                Email = u.email,
-                CPF = u.cpf,
-                RG = u.rg,
-                DtaNasc = DateOnly.FromDateTime(u.dtaNasc),
-                NumeroDeCadastro = u.numeroDeCadastro,
-                Ativo = u.ativo,
-                Nacionalidade = u.nacionalidade,
-                Carteira = u.carteira,
-                Enderco = u.enderco,
-                Contato = u.contato,
-                Plano = u.plano,
-                MotoId = u.motos?.IDMoto ?? 0
+                idUser = u.idUser,
+                nome = u.nome,
+                email = u.email,
+                cpf = u.cpf,
+                rg = u.rg,
+                dtaNasc = DateOnly.FromDateTime(u.dtaNasc),
+                numeroDeCadastro = u.numeroDeCadastro,
+                ativo = u.ativo,
+                nacionalidade = u.nacionalidade,
+                carteira = u.carteira,
+                enderco = u.enderco,
+                contato = u.contato,
+                plano = u.plano,
+                motoId = u.motos?.idMoto ?? 0
             }).ToList();
         }
 
@@ -45,20 +45,20 @@ namespace Api.Application.UseCases
 
             return new CreatedUserResponse
             {
-                IDUser = u.idUser,
-                Nome = u.nome,
-                Email = u.email,
-                CPF = u.cpf,
-                RG = u.rg,
-                DtaNasc = DateOnly.FromDateTime(u.dtaNasc),
-                NumeroDeCadastro = u.numeroDeCadastro,
-                Ativo = u.ativo,
-                Nacionalidade = u.nacionalidade,
-                Carteira = u.carteira,
-                Enderco = u.enderco,
-                Contato = u.contato,
-                Plano = u.plano,
-                MotoId = u.motos?.IDMoto ?? 0
+                idUser = u.idUser,
+                nome = u.nome,
+                email = u.email,
+                cpf = u.cpf,
+                rg = u.rg,
+                dtaNasc = DateOnly.FromDateTime(u.dtaNasc),
+                numeroDeCadastro = u.numeroDeCadastro,
+                ativo = u.ativo,
+                nacionalidade = u.nacionalidade,
+                carteira = u.carteira,
+                enderco = u.enderco,
+                contato = u.contato,
+                plano = u.plano,
+                motoId = u.motos?.idMoto ?? 0
             };
         }
 
@@ -66,18 +66,18 @@ namespace Api.Application.UseCases
         {
             var user = new User
             {
-                nome = request.Nome,
-                email = request.Email,
-                cpf = request.CPF,
-                rg = request.RG,
-                dtaNasc = request.DtaNasc.ToDateTime(TimeOnly.MinValue),
-                numeroDeCadastro = request.NumeroDeCadastro,
-                ativo = request.Ativo,
-                nacionalidade = request.Nacionalidade,
-                carteira = request.Carteira,
-                enderco = request.Enderco,
-                contato = request.Contato,
-                plano = request.Plano,
+                nome = request.nome,
+                email = request.email,
+                cpf = request.cpf,
+                rg = request.rg,
+                dtaNasc = request.dtaNasc.ToDateTime(TimeOnly.MinValue),
+                numeroDeCadastro = request.numeroDeCadastro,
+                ativo = request.ativo,
+                nacionalidade = request.nacionalidade,
+                carteira = request.carteira,
+                enderco = request.enderco,
+                contato = request.contato,
+                plano = request.plano,
                 motos = moto
             };
 

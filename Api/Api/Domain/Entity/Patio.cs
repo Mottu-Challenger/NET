@@ -8,17 +8,17 @@ namespace Api.Domain.Entity
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public long IDPatio { get; set; }
+        public long idPatio { get; set; }
 
-        public string Nome { get; set; }
+        public string nome { get; set; }
 
-        public int Capacidade { get; set; }
+        public int capacidade { get; set; }
 
-        public int Alocadas { get; set; }
+        public int alocadas { get; set; }
 
-        public string Enderco { get; set; }
+        public Enderco enderco { get; set; }
 
-        public List<Funcionario> FuncionariosDaUnidade { get; set; }
+        public List<Funcionario> funcionariosDaUnidade { get; set; }
 
     }
 }

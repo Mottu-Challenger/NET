@@ -69,7 +69,7 @@ namespace Api.Infrastructure.Mappings
 
             builder
                 .HasOne(u => u.motos)
-                .WithOne() // ou .WithMany() se for 1:N
+                .WithOne()
                 .HasForeignKey<Moto>("UserId")
                 .OnDelete(DeleteBehavior.Restrict);
         }

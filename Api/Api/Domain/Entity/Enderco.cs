@@ -9,16 +9,16 @@ namespace Api.Domain.Entity
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public long IDEndereco { get; set; }
+        public long idEndereco { get; set; }
         
-        public int Cep { get; set; }
-        public string Rua { get; set; }
-        public string Numero { get; set; }
-        public string Bairro { get; set; }
-        public string Cidade { get; set; }
+        public int cep { get; set; }
+        public string rua { get; set; }
+        public string numero { get; set; }
+        public string bairro { get; set; }
+        public string cidade { get; set; }
 
-        public TypeEstado Estado { get; set; }
-        public string Complemento { get; set; }
+        public TypeEstado estado { get; set; }
+        public string complemento { get; set; }
 
     }
 }

@@ -7,56 +7,56 @@ namespace Api.Application.Validators
     {
         public CreateMotoRequestValidator()
         {
-            RuleFor(x => x.Placa)
+            RuleFor(x => x.placa)
                 .NotEmpty()
                 .MaximumLength(10);
 
-            RuleFor(x => x.Chassi)
+            RuleFor(x => x.chassi)
                 .NotEmpty()
                 .MaximumLength(20);
 
-            RuleFor(x => x.TagDaMoto)
+            RuleFor(x => x.tagDaMoto)
                 .MaximumLength(50);
 
-            RuleFor(x => x.Observacao)
+            RuleFor(x => x.observacao)
                 .MaximumLength(255);
 
-            RuleFor(x => x.FotoDaMoto)
+            RuleFor(x => x.fotoDaMoto)
                 .MaximumLength(255);
 
-            RuleFor(x => x.Quilometragem)
+            RuleFor(x => x.quilometragem)
                 .GreaterThanOrEqualTo(0);
 
-            RuleFor(x => x.AnoDeFabricacao)
+            RuleFor(x => x.anoDeFabricacao)
                 .GreaterThan(1900);
 
-            RuleFor(x => x.AnoDelançamento)
+            RuleFor(x => x.anoDeLancamento)
                 .LessThanOrEqualTo(DateOnly.FromDateTime(DateTime.Today));
 
-            RuleFor(x => x.UserId)
+            RuleFor(x => x.userId)
                 .GreaterThan(0);
 
-            RuleFor(x => x.Combustivel)
+            RuleFor(x => x.combustivel)
                 .IsInEnum()
                 .WithMessage("Combustível inválido.");
 
-            RuleFor(x => x.TypeMotos)
+            RuleFor(x => x.typeMotos)
                 .IsInEnum()
                 .WithMessage("Tipo de moto inválida.");
 
-            RuleFor(x => x.PatioAtual)
+            RuleFor(x => x.patioAtual)
                 .MaximumLength(100);
 
-            RuleFor(x => x.PlanoAssociado)
+            RuleFor(x => x.planoAssociado)
                 .MaximumLength(100);
 
-            RuleFor(x => x.Multas)
+            RuleFor(x => x.multas)
                 .MaximumLength(255);
 
-            RuleFor(x => x.HistoricoDeReparos)
+            RuleFor(x => x.historicoDeReparos)
                 .MaximumLength(255);
 
-            RuleFor(x => x.HistoricoDeChecks)
+            RuleFor(x => x.historicoDeChecks)
                 .MaximumLength(255);
         }
     }

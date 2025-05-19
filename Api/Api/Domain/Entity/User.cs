@@ -19,15 +19,13 @@ namespace Api.Domain.Entity
         public DateTime dtaNasc { get; set; }
         public int numeroDeCadastro { get; set; }
         public bool ativo { get; set; }
-
-        // Representações simples como strings (pode ser substituído por FK depois)
+        
         public string nacionalidade { get; set; }
         public string carteira { get; set; }
         public string enderco { get; set; }
         public string contato { get; set; }
         public string plano { get; set; }
-
-        // Relacionamento direto com a moto associada
+        
         public Moto motos { get; set; }
 
         public User(long idUser, string nome, string email, string cpf, string rg, DateTime dtaNasc, int numeroDeCadastro, bool ativo, string nacionalidade, string carteira, string enderco, string contato, string plano, Moto motos)
@@ -57,14 +55,11 @@ namespace Api.Domain.Entity
             if (string.IsNullOrEmpty(rg))
                 throw new DomainException("RG não pode ser vazio.");
 
-            // Remove tudo que não for número
             string rgNumeros = Regex.Replace(rg, @"[^\d]", "");
 
-            // Verifica se tem exatamente 9 dígitos
             if (rgNumeros.Length != 9)
                 throw new DomainException("RG deve conter exatamente 9 dígitos.");
 
-            // Verifica se todos os números são iguais (ex: 111111111)
             if (new string(rgNumeros[0], 9) == rgNumeros)
                 throw new DomainException("RG inválido.");
         }

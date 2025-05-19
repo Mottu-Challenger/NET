@@ -18,30 +18,30 @@ namespace Api.Application.UseCases
 
         public async Task<List<CreatedMotoResponse>> GetAllMotosAsync()
         {
-            var motos = await _context.Motos.Include(m => m.User).ToListAsync();
+            var motos = await _context.Motos.Include(m => m.user).ToListAsync();
 
             return motos.Select(m => new CreatedMotoResponse
             {
-                IDMoto = m.IDMoto,
-                AnoDelançamento = DateOnly.FromDateTime(m.AnoDelançamento),
-                Quilometragem = m.Quilometragem,
-                AnoDeFabricacao = m.AnoDeFabricacao,
-                Placa = m.Placa,
-                TagDaMoto = m.TagDaMoto,
-                Chassi = m.Chassi,
-                Observacao = m.Observacao,
-                FotoDaMoto = m.FotoDaMoto,
-                IPVA = m.IPVA,
-                Licenciamento = m.Licenciamento,
-                DPVAT = m.DPVAT,
-                Combustivel = m.Combustivel.ToString(),
-                TypeMotos = m.TypeMoto.ToString(),
-                PatioAtual = m.PatioAtual,
-                PlanoAssociado = m.PlanoAssociado,
-                Multas = m.Multas,
-                HistoricoDeReparos = m.HistoricoDeReparos,
-                HistoricoDeChecks = m.HistoricoDeChecks,
-                UserId = m.User.idUser
+                idMoto = m.idMoto,
+                anoDeLancamento = DateOnly.FromDateTime(m.anoDeLancamento),
+                quilometragem = m.quilometragem,
+                anoDeFabricacao = m.anoDeFabricacao,
+                placa = m.placa,
+                tagDaMoto = m.tagDaMoto,
+                chassi = m.chassi,
+                observacao = m.observacao,
+                fotoDaMoto = m.fotoDaMoto,
+                ipva = m.ipva,
+                licenciamento = m.licenciamento,
+                dpvat = m.dpvat,
+                combustivel = m.combustivel.ToString(),
+                typeMotos = m.typeMoto.ToString(),
+                patioAtual = m.patioAtual,
+                planoAssociado = m.planoAssociado,
+                multas = m.multas,
+                historicoDeReparos = m.historicoDeReparos,
+                historicoDeChecks = m.historicoDeChecks,
+                userId = m.user.idUser
             }).ToList();
         }
 
@@ -49,25 +49,25 @@ namespace Api.Application.UseCases
         {
             var moto = new Moto
             {
-                AnoDelançamento = request.AnoDelançamento.ToDateTime(TimeOnly.MinValue),
-                Quilometragem = request.Quilometragem,
-                AnoDeFabricacao = request.AnoDeFabricacao,
-                Placa = request.Placa,
-                TagDaMoto = request.TagDaMoto,
-                Chassi = request.Chassi,
-                Observacao = request.Observacao,
-                FotoDaMoto = request.FotoDaMoto,
-                IPVA = request.IPVA,
-                Licenciamento = request.Licenciamento,
-                DPVAT = request.DPVAT,
-                Combustivel = (TypeCombustivel)request.Combustivel,
-                TypeMoto = (TypeMoto)request.TypeMotos,
-                PatioAtual = request.PatioAtual,
-                PlanoAssociado = request.PlanoAssociado,
-                Multas = request.Multas,
-                HistoricoDeReparos = request.HistoricoDeReparos,
-                HistoricoDeChecks = request.HistoricoDeChecks,
-                User = user
+                anoDeLancamento = request.anoDeLancamento.ToDateTime(TimeOnly.MinValue),
+                quilometragem = request.quilometragem,
+                anoDeFabricacao = request.anoDeFabricacao,
+                placa = request.placa,
+                tagDaMoto = request.tagDaMoto,
+                chassi = request.chassi,
+                observacao = request.observacao,
+                fotoDaMoto = request.fotoDaMoto,
+                ipva = request.ipva,
+                licenciamento = request.licenciamento,
+                dpvat = request.dpvat,
+                combustivel = (TypeCombustivel)request.combustivel,
+                typeMoto = (TypeMoto)request.typeMotos,
+                patioAtual = request.patioAtual,
+                planoAssociado = request.planoAssociado,
+                multas = request.multas,
+                historicoDeReparos = request.historicoDeReparos,
+                historicoDeChecks = request.historicoDeChecks,
+                user = user
             };
 
             _context.Motos.Add(moto);

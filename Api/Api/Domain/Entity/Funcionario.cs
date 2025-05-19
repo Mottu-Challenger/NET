@@ -9,22 +9,21 @@ namespace Api.Domain.Entity
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public long IDFuncionario { get; set; }
+        public long idFuncionario { get; set; }
 
-        public string NomeFuncionario { get; set; }
+        public string nomeFuncionario { get; set; }
 
-        public string Password { get; set; }
+        public string password { get; set; }
 
-        public string UserName { get; set; }
+        public string UuerName { get; set; }
 
-        public DateTime EntradaFuncionario { get; set; }
+        public DateTime entradaFuncionario { get; set; }
 
-        public DateTime SaidaFuncionario { get; set; }
+        public DateTime saidaFuncionario { get; set; }
 
-        public TypeCargo Cargo { get; set; }
+        public TypeCargo cargo { get; set; }
 
-        // Relacionamento 1:N com Moto
-        public List<Moto> MotosNaResponsabilidadeDoFuncionario { get; set; }
+        public List<Moto> motosNaResponsabilidadeDoFuncionario { get; set; }
 
     }
 }

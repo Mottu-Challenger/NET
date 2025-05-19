@@ -9,27 +9,27 @@ namespace Api.Domain.Entity
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public long IDPlano { get; set; }
+        public long idPlano { get; set; }
 
-        public double PrecoSemanal { get; set; }
+        public double precoSemanal { get; set; }
 
-        public double PrecoMensal { get; set; }
+        public double precoMensal { get; set; }
 
-        public bool IncluiSeguro { get; set; }
+        public bool incluiSeguro { get; set; }
 
-        public bool IncluiManutencao { get; set; }
+        public bool incluiManutencao { get; set; }
 
-        public bool PermiteTrocaDeMoto { get; set; }
+        public bool permiteTrocaDeMoto { get; set; }
 
-        public bool IncluiAssistencia24h { get; set; }
+        public bool incluiAssistencia24h { get; set; }
 
-        public bool PermiteCompraFutura { get; set; }
+        public bool permiteCompraFutura { get; set; }
 
-        public TypePlano Planos { get; set; }
+        public TypePlano planos { get; set; }
 
-        public TypeMoto TypeMoto { get; set; }
+        public TypeMoto typeMoto { get; set; }
 
-        public string Moto { get; set; }
+        public Moto moto { get; set; }
 
     }
 }
