@@ -54,10 +54,8 @@ Desenvolveremos um sistema focado na **gestão visual e organizacional do espaç
 
 ## 📐 ENTIDADES PRINCIPAIS
 
-- **Moto**: placa, modelo, status, posição no pátio  
-- **Pátio**: nome da unidade, capacidade total, vagas disponíveis  
-- **Vaga**: código da vaga, status, posição no grid  
-- **Histórico**: entradas, saídas e trocas de posição das motos
+- **Moto**: idMoto, anoDeLancamento, quilometragem, anoDeFabricacao, placa, tagDaMoto, chassi, observacao, fotoDaMoto, ipva, licenciamento, dpvat, combustivel, typeMoto, user, patioAtual, planoAssociado, multas, historicoDeReparos, historicoDeChecks  
+- **User**: idUser, nome, email, cpf, rg, dtaNasc, numeroDeCadastro, ativo, nacionalidade, carteira, enderco, contato, plano, motos
 
 ---
 
